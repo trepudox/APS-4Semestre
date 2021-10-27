@@ -1,4 +1,4 @@
-package br.com.unip;
+package br.com.unip.aps.util;
 
 import java.util.Random;
 
