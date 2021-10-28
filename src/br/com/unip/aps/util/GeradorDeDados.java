@@ -12,7 +12,7 @@ public class GeradorDeDados {
         int[] array = new int[100000];
 
         for (int i = 0; i < 100000; i++) {
-            array[i] = random.nextInt(1, 10000);
+            array[i] = random.nextInt(9999) + 1;
         }
 
         return array;
