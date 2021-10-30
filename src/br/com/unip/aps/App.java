@@ -172,10 +172,6 @@ public class App {
             verArray(array);
     }
 
-    private static void gerarTxt() {
-
-    }
-
     private static int[] lerTxt() {
         Scanner scanner = new Scanner(System.in);
 
