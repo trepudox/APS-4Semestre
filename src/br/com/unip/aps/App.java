@@ -163,6 +163,7 @@ public class App {
     private static void insertionSort() {
         menuOpcoesSort("Insertion Sort");
         int[] array;
+        long tempo;
         int opcao;
 
         while (true) {
@@ -178,7 +179,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    InsertionSort.sort(array);
+                    tempo = InsertionSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -189,7 +191,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    InsertionSort.sort(array);
+                    tempo = InsertionSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -211,6 +214,7 @@ public class App {
     private static void bubbleSort() {
         menuOpcoesSort("Bubble Sort");
         int[] array;
+        long tempo;
         int opcao;
 
         while (true) {
@@ -226,7 +230,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    BubbleSort.sort(array);
+                    tempo = BubbleSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -237,7 +242,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    BubbleSort.sort(array);
+                    tempo = BubbleSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -259,6 +265,7 @@ public class App {
     private static void quickSort() {
         menuOpcoesSort("Quick Sort");
         int[] array;
+        long tempo;
         int opcao;
 
         while (true) {
@@ -274,7 +281,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    QuickSort.sort(array);
+                    tempo = QuickSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -285,7 +293,8 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    QuickSort.sort(array);
+                    tempo = QuickSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 

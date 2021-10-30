@@ -4,8 +4,8 @@ public class BubbleSort {
 
     private BubbleSort() {}
 
-    public static int[] sort(int[] array) {
-        return new int[0];
+    public static long sort(int[] array) {
+        return 0;
     }
 
 }

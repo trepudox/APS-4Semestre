@@ -4,7 +4,7 @@ public class InsertionSort {
 
     private InsertionSort() {}
 
-    public static void sort(int[] array) {
+    public static long sort(int[] array) {
         int i, j, key;
 
         long inicio = System.currentTimeMillis();
@@ -18,7 +18,7 @@ public class InsertionSort {
         }
 
         long fim = System.currentTimeMillis();
-        System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", fim - inicio);
+        return fim - inicio;
     }
 
 }
