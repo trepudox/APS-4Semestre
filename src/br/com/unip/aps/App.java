@@ -1,6 +1,7 @@
 package br.com.unip.aps;
 
 import br.com.unip.aps.ordenacao.InsertionSort;
+import br.com.unip.aps.ordenacao.QuickSort;
 import br.com.unip.aps.util.GeradorDeDados;
 
 import java.util.Arrays;
@@ -135,7 +136,7 @@ public class App {
     private static void insertionSort() {
         menuOpcoesSort();
         int[] array;
-        int opcao = 1;
+        int opcao;
 
         while (true) {
             opcao = entradaInt();
@@ -180,6 +181,150 @@ public class App {
                         verArray(array);
 
                     InsertionSort.sort(array);
+
+                    do {
+                        menuOpcoesVerArrayDepois();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    return;
+
+                case 4:
+                    System.out.println(".txt");
+                    return;
+
+                case 0:
+                    return;
+
+                default:
+                    System.out.println("\nSelecione uma opção válida.\n");
+            }
+        }
+    }
+
+    private static void bubbleSort() {
+        menuOpcoesSort();
+        int[] array;
+        int opcao;
+
+        while (true) {
+            opcao = entradaInt();
+
+            switch (opcao) {
+                case 1:
+                    menuOpcoesSort();
+                    break;
+
+                case 2:
+                    array = GeradorDeDados.gerarOrdenado();
+
+                    do {
+                        menuOpcoesVerArrayAntes();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    InsertionSort.sort(array);
+
+                    do {
+                        menuOpcoesVerArrayDepois();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    return;
+
+                case 3:
+                    array = GeradorDeDados.gerarAleatorio();
+
+                    do {
+                        menuOpcoesVerArrayAntes();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    InsertionSort.sort(array);
+
+                    do {
+                        menuOpcoesVerArrayDepois();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    return;
+
+                case 4:
+                    System.out.println(".txt");
+                    return;
+
+                case 0:
+                    return;
+
+                default:
+                    System.out.println("\nSelecione uma opção válida.\n");
+            }
+        }
+    }
+
+    private static void quickSort() {
+        menuOpcoesSort();
+        int[] array;
+        int opcao;
+
+        while (true) {
+            opcao = entradaInt();
+
+            switch (opcao) {
+                case 1:
+                    menuOpcoesSort();
+                    break;
+
+                case 2:
+                    array = GeradorDeDados.gerarOrdenado();
+
+                    do {
+                        menuOpcoesVerArrayAntes();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+//                    QuickSort.sort(array);
+
+                    do {
+                        menuOpcoesVerArrayDepois();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+                    return;
+
+                case 3:
+                    array = GeradorDeDados.gerarAleatorio();
+
+                    do {
+                        menuOpcoesVerArrayAntes();
+                        opcao = entradaInt();
+                    } while (opcao != 0 && opcao != 1);
+
+                    if (opcao == 1)
+                        verArray(array);
+
+//                    QuickSort.sort(array);
 
                     do {
                         menuOpcoesVerArrayDepois();
