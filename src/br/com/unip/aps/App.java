@@ -32,6 +32,7 @@ public class App {
                     break;
 
                 case 0:
+                    System.out.println("\nObrigado por usar nossa aplicação!");
                     System.exit(0);
                     break;
 
@@ -50,7 +51,7 @@ public class App {
                     break;
 
                 case 2:
-                    System.out.println("2. Realiza o BubbleSort");
+                    bubbleSort();
                     break;
 
                 case 3:
@@ -58,10 +59,11 @@ public class App {
                     break;
 
                 case 4:
-                    System.out.println("4. Realiza o QuickSort");
+                    quickSort();
                     break;
 
                 case 0:
+                    System.out.println("\nObrigado por usar nossa aplicação!");
                     break;
 
                 default:
@@ -105,9 +107,9 @@ public class App {
         System.out.println("0. Finaliza o programa");
     }
 
-    private static void menuOpcoesSort() {
+    private static void menuOpcoesSort(String sortOperation) {
         System.out.println();
-        System.out.println("MENU:");
+        System.out.printf("MENU %s:%n", sortOperation.toUpperCase());
         System.out.println("1. Mostra esse menu");
         System.out.println("2. Gerar array com números ordenados");
         System.out.println("3. Gerar array com números aleatórios");
@@ -115,7 +117,7 @@ public class App {
         System.out.println("0. Cancela a operação");
     }
 
-    private static void menuOpcoesVerArrayAntes() {
+    private static void menuOpcoesVerArrayAntesDaOrdenacao() {
         System.out.println();
         System.out.println("Deseja ver o array antes da ordenação?");
         System.out.println("1. Sim");
@@ -131,11 +133,35 @@ public class App {
 
     private static void verArray(int[] array) {
         System.out.println(Arrays.toString(array));
-        System.out.println("Tamanho: " + array.length);
+        System.out.println("Tamanho do array: " + array.length);
+    }
+
+    private static void promptVerArrayAntesDaOrdenacao(int[] array) {
+        int opcao;
+
+        do {
+            menuOpcoesVerArrayAntesDaOrdenacao();
+            opcao = entradaInt();
+        } while (opcao != 1 && opcao != 2);
+
+        if (opcao == 1)
+            verArray(array);
+    }
+
+    private static void promptVerArrayDepoisDaOrdenacao(int[] array) {
+        int opcao;
+
+        do {
+            menuOpcoesVerArrayDepois();
+            opcao = entradaInt();
+        } while (opcao != 1 && opcao != 2);
+
+        if (opcao == 1)
+            verArray(array);
     }
 
     private static void insertionSort() {
-        menuOpcoesSort();
+        menuOpcoesSort("Insertion Sort");
         int[] array;
         int opcao;
 
@@ -144,52 +170,28 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    menuOpcoesSort();
+                    menuOpcoesSort("Insertion Sort");
                     break;
 
                 case 2:
                     array = GeradorDeDados.gerarOrdenado();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     InsertionSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
                 case 3:
                     array = GeradorDeDados.gerarAleatorio();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     InsertionSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
@@ -207,7 +209,7 @@ public class App {
     }
 
     private static void bubbleSort() {
-        menuOpcoesSort();
+        menuOpcoesSort("Bubble Sort");
         int[] array;
         int opcao;
 
@@ -216,52 +218,28 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    menuOpcoesSort();
+                    menuOpcoesSort("Bubble Sort");
                     break;
 
                 case 2:
                     array = GeradorDeDados.gerarOrdenado();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     BubbleSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
                 case 3:
                     array = GeradorDeDados.gerarAleatorio();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     BubbleSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
@@ -279,7 +257,7 @@ public class App {
     }
 
     private static void quickSort() {
-        menuOpcoesSort();
+        menuOpcoesSort("Quick Sort");
         int[] array;
         int opcao;
 
@@ -288,52 +266,28 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    menuOpcoesSort();
+                    menuOpcoesSort("Quick Sort");
                     break;
 
                 case 2:
                     array = GeradorDeDados.gerarOrdenado();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     QuickSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
                 case 3:
                     array = GeradorDeDados.gerarAleatorio();
 
-                    do {
-                        menuOpcoesVerArrayAntes();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayAntesDaOrdenacao(array);
 
                     QuickSort.sort(array);
 
-                    do {
-                        menuOpcoesVerArrayDepois();
-                        opcao = entradaInt();
-                    } while (opcao != 0 && opcao != 1);
-
-                    if (opcao == 1)
-                        verArray(array);
+                    promptVerArrayDepoisDaOrdenacao(array);
 
                     return;
 
@@ -348,18 +302,6 @@ public class App {
                     System.out.println("\nSelecione uma opção válida.\n");
             }
         }
-    }
-
-    private static void teste() {
-        int[] array = GeradorDeDados.gerarAleatorio();
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.stream(array).count());
-
-        InsertionSort.sort(array);
-
-//        System.out.println(Arrays.toString(array));
-//        System.out.println(Arrays.stream(array).count());
-
     }
 
 }

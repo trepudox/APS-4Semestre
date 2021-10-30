@@ -18,7 +18,7 @@ public class InsertionSort {
         }
 
         long fim = System.currentTimeMillis();
-        System.out.printf("Tempo InsertionSort: %d ms%n", fim - inicio);
+        System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", fim - inicio);
     }
 
 }
