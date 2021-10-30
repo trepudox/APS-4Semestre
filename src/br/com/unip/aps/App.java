@@ -1,19 +1,20 @@
 package br.com.unip.aps;
 
+import br.com.unip.aps.exception.EmptyFileException;
 import br.com.unip.aps.ordenacao.BubbleSort;
 import br.com.unip.aps.ordenacao.InsertionSort;
 import br.com.unip.aps.ordenacao.QuickSort;
 import br.com.unip.aps.util.GeradorDeDados;
 
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class App {
 
-    // Bubble Sort
-    // Insertion Sort
-    // Quick Sort
+    private static final String path = "src\\br\\com\\unip\\aps\\txt\\";
 
     public static void main(String[] args) {
         System.out.println("Bem vindo ao programa de ordenação.");
@@ -62,6 +63,14 @@ public class App {
                     quickSort();
                     break;
 
+                case 5:
+                    GeradorDeDados.gerarTxtComValoresAleatorios();
+                    break;
+
+                case 6:
+                    GeradorDeDados.listarArquivosTxt();
+                    break;
+
                 case 0:
                     System.out.println("\nObrigado por usar nossa aplicação!");
                     break;
@@ -104,6 +113,8 @@ public class App {
         System.out.println("2. Realiza o BubbleSort");
         System.out.println("3. Realiza o InsertionSort");
         System.out.println("4. Realiza o QuickSort");
+        System.out.println("5. Gerar .txt com valores aleatórios");
+        System.out.println("6. Listar os arquivos .txt disponíveis");
         System.out.println("0. Finaliza o programa");
     }
 
@@ -132,6 +143,7 @@ public class App {
     }
 
     private static void verArray(int[] array) {
+        System.out.println();
         System.out.println(Arrays.toString(array));
         System.out.println("Tamanho do array: " + array.length);
     }
@@ -158,6 +170,50 @@ public class App {
 
         if (opcao == 1)
             verArray(array);
+    }
+
+    private static void gerarTxt() {
+
+    }
+
+    private static int[] lerTxt() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nInsira o nome do arquivo .txt armazenzado na pasta txt: ");
+        String nome = scanner.nextLine();
+
+        try (FileReader file = new FileReader(path + nome); BufferedReader reader = new BufferedReader(file)) {
+            List<Integer> integerList = new ArrayList<>();
+            String line = reader.readLine();
+            while (line != null) {
+                integerList.add(Integer.valueOf(line));
+
+                line = reader.readLine();
+            }
+
+            if (integerList.isEmpty())
+                throw new EmptyFileException();
+
+
+            int[] intArray = new int[integerList.size()];
+            for (int i = 0; i < integerList.size(); i++)
+                intArray[i] = integerList.get(i);
+
+            return intArray;
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("\nO arquivo não foi encontrado.");
+            return new int[] {};
+        } catch (IOException ex) {
+            System.out.println("\nNão foi possível ler o arquivo.");
+            return new int[] {};
+        } catch (NumberFormatException ex) {
+            System.out.println("\nNão foi possível converter os valores do arquivo em um array.");
+            return new int[] {};
+        } catch (EmptyFileException ex) {
+            System.out.println("\nO arquivo não possui valores.");
+            return new int[] {};
+        }
     }
 
     private static void insertionSort() {
@@ -199,7 +255,18 @@ public class App {
                     return;
 
                 case 4:
-                    System.out.println(".txt");
+                    array = lerTxt();
+
+                    if (array.length == 0)
+                        return;
+
+                    promptVerArrayAntesDaOrdenacao(array);
+
+                    tempo = InsertionSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+
+                    promptVerArrayDepoisDaOrdenacao(array);
+
                     return;
 
                 case 0:
@@ -250,7 +317,18 @@ public class App {
                     return;
 
                 case 4:
-                    System.out.println(".txt");
+                    array = lerTxt();
+
+                    if (array.length == 0)
+                        return;
+
+                    promptVerArrayAntesDaOrdenacao(array);
+
+                    tempo = BubbleSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+
+                    promptVerArrayDepoisDaOrdenacao(array);
+
                     return;
 
                 case 0:
@@ -301,7 +379,18 @@ public class App {
                     return;
 
                 case 4:
-                    System.out.println(".txt");
+                    array = lerTxt();
+
+                    if (array.length == 0)
+                        return;
+
+                    promptVerArrayAntesDaOrdenacao(array);
+
+                    tempo = QuickSort.sort(array);
+                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+
+                    promptVerArrayDepoisDaOrdenacao(array);
+
                     return;
 
                 case 0:
