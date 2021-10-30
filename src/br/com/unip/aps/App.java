@@ -1,5 +1,6 @@
 package br.com.unip.aps;
 
+import br.com.unip.aps.ordenacao.BubbleSort;
 import br.com.unip.aps.ordenacao.InsertionSort;
 import br.com.unip.aps.ordenacao.QuickSort;
 import br.com.unip.aps.util.GeradorDeDados;
@@ -229,7 +230,7 @@ public class App {
                     if (opcao == 1)
                         verArray(array);
 
-                    InsertionSort.sort(array);
+                    BubbleSort.sort(array);
 
                     do {
                         menuOpcoesVerArrayDepois();
@@ -252,7 +253,7 @@ public class App {
                     if (opcao == 1)
                         verArray(array);
 
-                    InsertionSort.sort(array);
+                    BubbleSort.sort(array);
 
                     do {
                         menuOpcoesVerArrayDepois();
