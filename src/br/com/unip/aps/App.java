@@ -302,7 +302,7 @@ public class App {
                     if (opcao == 1)
                         verArray(array);
 
-//                    QuickSort.sort(array);
+                    QuickSort.sort(array);
 
                     do {
                         menuOpcoesVerArrayDepois();
@@ -325,7 +325,7 @@ public class App {
                     if (opcao == 1)
                         verArray(array);
 
-//                    QuickSort.sort(array);
+                    QuickSort.sort(array);
 
                     do {
                         menuOpcoesVerArrayDepois();
