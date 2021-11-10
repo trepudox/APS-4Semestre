@@ -7,7 +7,7 @@ public class InsertionSort {
     public static long sort(int[] array) {
         int i, j, key;
 
-        long inicio = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
 
         for (i = 1; i < array.length; i++) {
             key = array[i];
@@ -17,8 +17,8 @@ public class InsertionSort {
             array[j + 1] = key;
         }
 
-        long fim = System.currentTimeMillis();
-        return fim - inicio;
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
     }
 
 }
