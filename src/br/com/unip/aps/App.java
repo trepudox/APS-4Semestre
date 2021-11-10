@@ -14,7 +14,7 @@ import java.util.*;
 
 public class App {
 
-    private static final String path = "src\\br\\com\\unip\\aps\\txt\\";
+    private static final String PATH = "src\\br\\com\\unip\\aps\\txt\\";
 
     public static void main(String[] args) {
         System.out.println("Bem vindo ao programa de ordenação.");
@@ -180,7 +180,7 @@ public class App {
         System.out.print("\nInsira o nome do arquivo .txt armazenzado na pasta txt: ");
         String nome = scanner.nextLine();
 
-        try (FileReader file = new FileReader(path + nome); BufferedReader reader = new BufferedReader(file)) {
+        try (FileReader file = new FileReader(PATH + nome); BufferedReader reader = new BufferedReader(file)) {
             List<Integer> integerList = new ArrayList<>();
             String line = reader.readLine();
             while (line != null) {
