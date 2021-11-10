@@ -173,6 +173,8 @@ public class App {
     }
 
     private static int[] lerTxt() {
+        GeradorDeDados.listarArquivosTxt();
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("\nInsira o nome do arquivo .txt armazenzado na pasta txt: ");
@@ -355,7 +357,7 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array);
+                    tempo = QuickSort.sort(array, 0, array.length - 1);
                     System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
@@ -367,7 +369,7 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array);
+                    tempo = QuickSort.sort(array, 0, array.length - 1);
                     System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
@@ -382,7 +384,7 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array);
+                    tempo = QuickSort.sort(array, 0, array.length - 1);
                     System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
