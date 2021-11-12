@@ -18,6 +18,24 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println("Bem vindo ao programa de ordenação.");
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+            System.out.println("\nObrigado por usar nossa aplicação!");
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("\nOBS.: Dependendo do hardware, da quantidade de elementos do array e do algoritmo selecionado" +
+                " o processo pode demorar um pouco.");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ignored) {
+            System.out.println("\nObrigado por usar nossa aplicação!");
+            Thread.currentThread().interrupt();
+        }
+
         menuInicial();
         int opcao = 1;
 
@@ -33,7 +51,7 @@ public class App {
                     break;
 
                 case 0:
-                    System.out.println("\nObrigado por usar nossa aplicação!");
+                    System.out.println("\nObrigado por usar a nossa aplicação!");
                     System.exit(0);
                     break;
 
@@ -122,8 +140,8 @@ public class App {
         System.out.println();
         System.out.printf("MENU %s:%n", sortOperation.toUpperCase());
         System.out.println("1. Mostra esse menu");
-        System.out.println("2. Gerar array com números ordenados");
-        System.out.println("3. Gerar array com números aleatórios");
+        System.out.println("2. Gerar array com números ordenados (100 mil valores)");
+        System.out.println("3. Gerar array com números aleatórios (100 mil valores)");
         System.out.println("4. Usar .txt armazenado no projeto");
         System.out.println("0. Cancela a operação");
     }
@@ -177,8 +195,8 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nInsira o nome do arquivo .txt armazenzado na pasta txt: ");
-        String nome = scanner.nextLine();
+        System.out.print("\nInsira o nome do arquivo .txt armazenzado na pasta txt (não inclua o '.txt'!): ");
+        String nome = scanner.nextLine().concat(".txt");
 
         try (FileReader file = new FileReader(PATH + nome); BufferedReader reader = new BufferedReader(file)) {
             List<Integer> integerList = new ArrayList<>();
@@ -296,7 +314,7 @@ public class App {
                     promptVerArrayAntesDaOrdenacao(array);
 
                     tempo = BubbleSort.sort(array);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    System.out.printf("%nTempo necessário do BubbleSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -308,7 +326,7 @@ public class App {
                     promptVerArrayAntesDaOrdenacao(array);
 
                     tempo = BubbleSort.sort(array);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    System.out.printf("%nTempo necessário do BubbleSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -323,7 +341,7 @@ public class App {
                     promptVerArrayAntesDaOrdenacao(array);
 
                     tempo = BubbleSort.sort(array);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    System.out.printf("%nTempo necessário do BubbleSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -341,7 +359,7 @@ public class App {
     private static void quickSort() {
         menuOpcoesSort("Quick Sort");
         int[] array;
-        long tempo;
+        long tempo = 0;
         int opcao;
 
         while (true) {
@@ -357,8 +375,14 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array, 0, array.length - 1);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    try {
+                        tempo = QuickSort.sort(array, 0, array.length - 1);
+                    } catch (StackOverflowError ex) {
+                        System.out.print("\nO limite de memória para essa operação foi excedido!\n");
+                        return;
+                    }
+
+                    System.out.printf("%nTempo necessário do QuickSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -369,8 +393,14 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array, 0, array.length - 1);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    try {
+                        tempo = QuickSort.sort(array, 0, array.length - 1);
+                    } catch (StackOverflowError ex) {
+                        System.out.print("\nO limite de memória para essa operação foi excedido!\n");
+                        return;
+                    }
+
+                    System.out.printf("%nTempo necessário do QuickSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 
@@ -384,8 +414,14 @@ public class App {
 
                     promptVerArrayAntesDaOrdenacao(array);
 
-                    tempo = QuickSort.sort(array, 0, array.length - 1);
-                    System.out.printf("%nTempo necessário do InsertionSort: %d ms%n", tempo);
+                    try {
+                        tempo = QuickSort.sort(array, 0, array.length - 1);
+                    } catch (StackOverflowError ex) {
+                        System.out.print("\nO limite de memória para essa operação foi excedido!\n");
+                        return;
+                    }
+
+                    System.out.printf("%nTempo necessário do QuickSort para ordenação: %d ms%n", tempo);
 
                     promptVerArrayDepoisDaOrdenacao(array);
 

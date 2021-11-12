@@ -36,7 +36,7 @@ public class GeradorDeDados {
     public static void gerarTxtComValoresAleatorios() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nEscolha um nome para o arquivo: ");
+        System.out.print("\nEscolha um nome para o arquivo (não inclua o '.txt'!): ");
         String nome = scanner.next();
 
         try (FileWriter file = new FileWriter(String.format("C:\\Users\\marco\\GitHub\\APS-4Semestre\\src\\br\\com\\unip\\aps\\txt\\%s.txt", nome));
