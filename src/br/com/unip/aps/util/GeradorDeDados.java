@@ -49,6 +49,7 @@ public class GeradorDeDados {
             for (int i = 0; i < quantidade; i++)
                 fileArq.println(random.nextInt(9999) + 1);
 
+            System.out.println("\nArquivo gerado com sucesso!");
         } catch (IOException ex) {
             System.out.println("\nNão foi possível concluir a operação.");
         } catch (InputMismatchException ex) {
