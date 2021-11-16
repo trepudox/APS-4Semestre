@@ -96,7 +96,7 @@ public class App {
                     break;
 
                 default:
-                    System.out.println("\nSelecione uma opção válida.\n");
+                    System.out.println("\nSelecione uma opção válida.");
             }
         }
 
