@@ -16,6 +16,8 @@ public class App {
 
     private static final String PATH = "src\\br\\com\\unip\\aps\\txt\\";
 
+    // Código fonte —> https://github.com/trepudox/APS-4Semestre
+
     public static void main(String[] args) {
         System.out.println("Bem vindo ao programa de ordenação.");
 
